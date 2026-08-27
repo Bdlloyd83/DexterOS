@@ -1,0 +1,33 @@
+body{
+    background-image: url(dexter.png);
+    background-color: rgb(206, 224, 241);
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+    margin: 0;
+
+}
+h1{
+    text-align: center;
+    color: red;
+}
+.app{
+    backdrop-filter: blur;
+    background-color: black;
+    color: green;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px;
+    height: fit-content;
+}
+.appName{
+    background-color: ivory;
+}
+.topBar{
+    top: 100%;
+    width: 100%;
+    background-color: ivory;
+    display: flex;
+    justify-content: space-evenly;
+    color: green;
+}
