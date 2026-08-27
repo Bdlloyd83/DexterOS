@@ -3,22 +3,29 @@
     <head>
         <title>DexterOS</title>
         <link rel="stylesheet" href="style.css">
+        <script src="java.js"></script>
     </head>
     <body>
         <div class="topBar">
            
-            <p>DexterOS</p>
-            <p>8/26/26 9:00 pm</p>
+            <p id="text">DexterOS</p>
+            <p id="text" class="currentTime">Time</p>
         </div>
         <h1>DexterOS</h1>
         
         <div class="apps">
+            <div class="appIcon">
+                <img src="notepad.png" alt="notepad">
+                <p>Notepad</p>
+            </div>
             <div class="app">
+                
                 <div class="appName">
                   <h4>Notepad</h4>
+                                    <button type="button" class="closeButton" id="closeNotepad"></button>
                 </div>
                 <div class="appContent">
-                    Tonights the night...
+                    <textarea aria-label="Notepad contents" placeholder="Tonights the night..."></textarea>
                 </div>
             </div>
         </div>
