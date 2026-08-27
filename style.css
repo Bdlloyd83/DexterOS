@@ -5,13 +5,16 @@ body{
     background-position: center center;
     min-height: 100vh;
     margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
 h1{
     text-align: center;
     color: red;
+    text-shadow: 5px 5px 5px black;
 }
 .app{
+    position: absolute;
     backdrop-filter: blur;
     background-color: black;
     color: green;
@@ -22,6 +25,10 @@ h1{
 }
 .appName{
     background-color: ivory;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: move;
 }
 .topBar{
     top: 100%;
@@ -30,4 +37,53 @@ h1{
     display: flex;
     justify-content: space-evenly;
     color: green;
+}
+.topBar #text{
+    background-color: rgb(206, 224, 241);
+    color: green;
+    width: 20%;
+    height: 20px;
+    text-align: center;
+    padding: 5px;
+
+}
+.closeButton{
+    color: red;
+    background-color: red;
+    border: 2px solid rgb(136, 18, 0);
+    height: 15px;
+    width: 15px;
+    border-radius: 15px;
+}
+.appContent{
+    padding: 10px;
+}
+.appContent textarea{
+    display: block;
+    box-sizing: border-box;
+    width: 280px;
+    height: 180px;
+    resize: both;
+    font: inherit;
+    color: green;
+    background-color: ivory;
+}
+.appIcon img{
+height: 34px;
+width: auto;
+background-color: red;
+align-self: center;
+margin-top: 5px;
+}
+.appIcon{
+    background-color: white;
+    width: fit-content;
+    color: red;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid rgb(0 0 0/ 80);
+    border-radius: 5px;
+    margin: 20px;
 }
