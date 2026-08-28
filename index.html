@@ -14,20 +14,39 @@
         <h1>DexterOS</h1>
         
         <div class="apps">
-            <div class="appIcon">
+            <div class="appIcon" data-app="notepadApp" role="button" tabindex="0">
                 <img src="notepad.png" alt="notepad">
                 <p>Notepad</p>
             </div>
-            <div class="app">
-                
-                <div class="appName">
-                  <h4>Notepad</h4>
-                                    <button type="button" class="closeButton" id="closeNotepad"></button>
-                </div>
-                <div class="appContent">
-                    <textarea aria-label="Notepad contents" placeholder="Tonights the night..."></textarea>
+            <div class="appIcon" data-app="codeApp" role="button" tabindex="0">
+                <img src="harry.png" alt="Harry's Code">
+                <p>Harry's Code</p>
+            </div>
+        </div>
+        <div class="app" id="notepadApp">
+            <div class="appName">
+                <h4>Notepad</h4>
+                <button type="button" class="closeButton" id="closeNotepad" aria-label="Close Notepad"></button>
+            </div>
+            <div class="appContent">
+                <textarea aria-label="Notepad contents" placeholder="Tonights the night..."></textarea>
+            </div>
+        </div>
+        <div class="app codeApp" id="codeApp">
+            <div class="appName">
+                <h4>Harry's Code</h4>
+                <button type="button" class="closeButton" id="closeCode" aria-label="Close The Code"></button>
+            </div>
+            <div class="appContent">
+                <div class="codeViewer">
+                    <button type="button" class="codeArrow" id="previousCode" aria-label="Previous code item">&lt;</button>
+                    <ul class="codeList" id="codeList" tabindex="0" aria-label="The Code"></ul>
+                    <button type="button" class="codeArrow" id="nextCode" aria-label="Next code item">&gt;</button>
                 </div>
             </div>
+        </div>
+        <div class="app">
+
         </div>
     </body>
 </html>
