@@ -1,57 +1,3 @@
-const ASSET_FOLDERS = ["./", "./assets/", "./images/", "../", "../assets/", "../images/"];
-
-function resolveAssetPath(fileName) {
-    const candidates = Array.from(new Set([
-        fileName,
-        ...ASSET_FOLDERS.map(function (folder) {
-            return folder + fileName;
-        })
-    ]));
-
-    return new Promise(function (resolve) {
-        var index = 0;
-
-        function tryNext() {
-            if (index >= candidates.length) {
-                resolve(fileName);
-                return;
-            }
-
-            var candidate = candidates[index];
-            index += 1;
-            var probe = new Image();
-            probe.onload = function () {
-                resolve(candidate);
-            };
-            probe.onerror = function () {
-                tryNext();
-            };
-            probe.src = candidate;
-        }
-
-        tryNext();
-    });
-}
-
-async function applyAssetPaths() {
-    var themedImages = document.querySelectorAll('[data-asset]');
-    for (var i = 0; i < themedImages.length; i += 1) {
-        var element = themedImages[i];
-        var assetName = element.getAttribute('data-asset');
-        if (!assetName) {
-            continue;
-        }
-        var resolved = await resolveAssetPath(assetName);
-        if (element.tagName === 'IMG') {
-            element.src = resolved;
-        }
-    }
-
-    var desktopBackground = await resolveAssetPath('dexter.png');
-    document.body.style.backgroundImage = 'url("' + desktopBackground + '")';
-    document.body.style.backgroundSize = 'cover';
-}
-
 function updateTime(){
     var time = new Date().toLocaleString();
     var txt = document.querySelector('.currentTime');
@@ -324,14 +270,14 @@ function initAppSystem() {
     var prevButton = document.getElementById('prevButton');
     var nextButton = document.getElementById('nextButton');
 
-    async function updateCard() {
+    function updateCard() {
         if (!nameEl || !photoEl || !paragraphEl) {
             return;
         }
 
         var currentItem = contentList[currentIndex];
         nameEl.textContent = currentItem.name;
-        photoEl.src = await resolveAssetPath(currentItem.photo);
+        photoEl.src = currentItem.photo;
         photoEl.alt = currentItem.name;
         paragraphEl.textContent = currentItem.paragraph;
     }
@@ -473,11 +419,7 @@ function initAppSystem() {
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () {
-        initAppSystem();
-        applyAssetPaths();
-    });
+    document.addEventListener('DOMContentLoaded', initAppSystem);
 } else {
     initAppSystem();
-    applyAssetPaths();
 }
