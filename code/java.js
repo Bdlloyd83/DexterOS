@@ -222,14 +222,44 @@ function initAppSystem() {
 
     var contentList = [
         {
-            name: "Trinity",
+            name: "Arthur Mitchell",
             photo: "trinity.jpg",
-            paragraph: "Also known as Arthur Mitchell, Trinity lives a double life. He balances a family life while hiding a darker side that is tied to murder and manipulation."
+            paragraph: "Known locally as Trinity. Police linked him to a string of killings and a carefully hidden family life."
         },
         {
-            name: "Dexter Morgan",
-            photo: "dexter.png",
-            paragraph: "A blood spatter analyst by day and a vigilante by night, Dexter is driven by a code and a need to control the chaos in his world."
+            name: "Isaak Sirko",
+            photo: "isaakSirko.png",
+            paragraph: "Russian gang associate tied to trafficking, intimidation, and violent enforcement."
+        },
+        {
+            name: "Travis Marshall",
+            photo: "travisMarshall.png",
+            paragraph: "Self-styled prophet connected to cult activity and multiple homicide investigations."
+        },
+        {
+            name: "Jordan Chase",
+            photo: "jordanChase.png",
+            paragraph: "Former public figure under scrutiny for abuse, manipulation, and suspected murder links."
+        },
+        {
+            name: "Miguel Prado",
+            photo: "migelPrado.png",
+            paragraph: "Businessman and suspected crime figure with repeated ties to organized violence."
+        },
+        {
+            name: "Brain Surgeon",
+            photo: "brainSurgeon.png",
+            paragraph: "Unidentified killer known for precise, surgical attacks and calculated victim selection."
+        },
+        {
+            name: "James Doakes",
+            photo: "bayHarborButcher.png",
+            paragraph: "Police identified James Doakes as the Bay Harbor Butcher in a series of brutal killings."
+        },
+        {
+            name: "Ice Truck Killer",
+            photo: "iceTruck.png",
+            paragraph: "Unidentified suspect linked to refrigerated-victim murders and a pattern of highly organized attacks."
         }
     ];
 
