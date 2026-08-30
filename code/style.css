@@ -5,7 +5,17 @@ body{
     background-position: center center;
     min-height: 100vh;
     margin: 0;
+    box-sizing: border-box;
+    border: 4px solid transparent;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+body.darkMode{
+    background-color: rgb(70, 66, 66);
+    color: azure;
+    border-color: #0c2d5a;
+    box-shadow: inset 0 0 0 4px #0c2d5a;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 
 }
 h1{
@@ -18,6 +28,7 @@ h1{
     left: 120px;
     position: absolute;
     top: 120px;
+    z-index: 15;
     backdrop-filter: blur;
     background-color: black;
     color: green;
@@ -37,10 +48,94 @@ h1{
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
+    pointer-events: auto;
 }
 .codeApp{
     left: 480px;
     top: 180px;
+}
+.forensicsApp{
+    left: 480px;
+    top: 100px;
+    width: 420px;
+    max-width: calc(100vw - 120px);
+    min-width: 300px;
+}
+
+.forensicsApp .appContent{
+    max-width: 100%;
+}
+
+.forensicsApp .appContent p{
+    margin: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+.weatherApp{
+    left: 520px;
+    top: 50px;
+    width: fit-content;
+
+}
+.evidenceApp{
+    left: 560px;
+    top: 100px;
+    width: fit-content;
+}
+.operationsApp{
+    left: 600px;
+    top: 150px;
+}
+.caseList{
+    left: 640px;
+    top: 200px;
+    max-width: 400px;
+    min-width: 200px;
+}
+.caseList .appContent{
+    text-align: center;
+}
+.caseList #name{
+    margin: 0 0 10px;
+    text-align: center;
+}
+.caseList img{
+    display: block;
+    max-height: 180px;
+    margin: 0 auto;
+}
+.settingsApp{
+    left:680px;
+    top: 250px;
+    
+}
+#mode{
+    background-color: rgb(144 238 144/ 80);
+    border-radius: 5px;
+    
+}
+#pinInput{
+    display: block;
+    margin-bottom: 8px;
+    width: 180px;
+    padding: 6px;
+}
+#pinSubmit{
+    margin-bottom: 8px;
+}
+#pinMessage{
+    min-height: 18px;
+    margin: 0;
+    color: red;
+}
+#unlocked textarea{
+    width: 260px;
+    min-height: 180px;
+    resize: vertical;
+    font: inherit;
+    background-color: ivory;
+    color: green;
 }
 .appName{
     background-color: ivory;
@@ -48,6 +143,7 @@ h1{
     align-items: center;
     justify-content: space-between;
     cursor: move;
+    transition: background-color 0.3s ease;
 }
 .topBar{
     top: 100%;
@@ -56,15 +152,33 @@ h1{
     display: flex;
     justify-content: space-evenly;
     color: green;
+    transition: background-color 0.3s ease;
 }
-.topBar #text{
+.topBar #topTitle,
+.topBar #currentTime{
     background-color: rgb(206, 224, 241);
     color: green;
     width: 20%;
     height: 20px;
     text-align: center;
     padding: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, font-weight 0.2s ease;
+}
+body.darkMode .topBar{
+    background-color: #0b1220;
 
+    transition: background-color 0.3s ease;
+}
+body.darkMode .topBar #topTitle,
+body.darkMode .topBar #currentTime{
+    background-color: #1b2a3d;
+    font-weight: 700;
+    transition: background-color 0.3s ease, font-weight 0.2s ease;
+}
+body.darkMode .appName{
+    background-color:#0b1220;
+    transition: background-color 0.3s ease;
 }
 .closeButton{
     color: red;
@@ -152,6 +266,7 @@ h1{
     position: relative;
     transition: height 150ms ease, width 150ms ease;
     width: 76px;
+    text-align: center;
 }
 .appIcon::before{
     background-color: red;
@@ -166,6 +281,7 @@ h1{
     width: 20px;
 }
 .appIcon:hover,
+
 .appIcon:focus-visible{
     align-items: center;
     height: 180px;
@@ -210,4 +326,20 @@ h1{
     transform: translateY(-50%);
     border-radius: 5px;
     border: 2px solid rgb(105, 28, 28);
+}
+.appIcon img#weatherIcon {
+    background: transparent;
+    display: block;
+    opacity: 0;
+    filter:
+        drop-shadow(1px 0 0 black)
+        drop-shadow(-1px 0 0 black)
+        drop-shadow(0 1px 0 black)
+        drop-shadow(0 -1px 0 black);
+    transition: opacity 150ms ease;
+}
+
+.appIcon:hover img#weatherIcon,
+.appIcon:focus-visible img#weatherIcon {
+    opacity: 1;
 }
