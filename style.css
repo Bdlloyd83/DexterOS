@@ -1,0 +1,345 @@
+body{
+    background-image: url(dexter.png);
+    background-color: rgb(206, 224, 241);
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    border: 4px solid transparent;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+body.darkMode{
+    background-color: rgb(70, 66, 66);
+    color: azure;
+    border-color: #0c2d5a;
+    box-shadow: inset 0 0 0 4px #0c2d5a;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+}
+h1{
+    text-align: center;
+    color: red;
+    text-shadow: 5px 5px 5px black;
+}
+.app{
+    display: none;
+    left: 120px;
+    position: absolute;
+    top: 120px;
+    z-index: 15;
+    backdrop-filter: blur;
+    background-color: black;
+    color: green;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px;
+    height: fit-content;
+}
+.apps{
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    position: fixed;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    pointer-events: auto;
+}
+.codeApp{
+    left: 480px;
+    top: 180px;
+}
+.forensicsApp{
+    left: 480px;
+    top: 100px;
+    width: 420px;
+    max-width: calc(100vw - 120px);
+    min-width: 300px;
+}
+
+.forensicsApp .appContent{
+    max-width: 100%;
+}
+
+.forensicsApp .appContent p{
+    margin: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+.weatherApp{
+    left: 520px;
+    top: 50px;
+    width: fit-content;
+
+}
+.evidenceApp{
+    left: 560px;
+    top: 100px;
+    width: fit-content;
+}
+.operationsApp{
+    left: 600px;
+    top: 150px;
+}
+.caseList{
+    left: 640px;
+    top: 200px;
+    max-width: 400px;
+    min-width: 200px;
+}
+.caseList .appContent{
+    text-align: center;
+}
+.caseList #name{
+    margin: 0 0 10px;
+    text-align: center;
+}
+.caseList img{
+    display: block;
+    max-height: 180px;
+    margin: 0 auto;
+}
+.settingsApp{
+    left:680px;
+    top: 250px;
+    
+}
+#mode{
+    background-color: rgb(144 238 144/ 80);
+    border-radius: 5px;
+    
+}
+#pinInput{
+    display: block;
+    margin-bottom: 8px;
+    width: 180px;
+    padding: 6px;
+}
+#pinSubmit{
+    margin-bottom: 8px;
+}
+#pinMessage{
+    min-height: 18px;
+    margin: 0;
+    color: red;
+}
+#unlocked textarea{
+    width: 260px;
+    min-height: 180px;
+    resize: vertical;
+    font: inherit;
+    background-color: ivory;
+    color: green;
+}
+.appName{
+    background-color: ivory;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: move;
+    transition: background-color 0.3s ease;
+}
+.topBar{
+    top: 100%;
+    width: 100%;
+    background-color: ivory;
+    display: flex;
+    justify-content: space-evenly;
+    color: green;
+    transition: background-color 0.3s ease;
+}
+.topBar #topTitle,
+.topBar #currentTime{
+    background-color: rgb(206, 224, 241);
+    color: green;
+    width: 20%;
+    height: 20px;
+    text-align: center;
+    padding: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, font-weight 0.2s ease;
+}
+body.darkMode .topBar{
+    background-color: #0b1220;
+
+    transition: background-color 0.3s ease;
+}
+body.darkMode .topBar #topTitle,
+body.darkMode .topBar #currentTime{
+    background-color: #1b2a3d;
+    font-weight: 700;
+    transition: background-color 0.3s ease, font-weight 0.2s ease;
+}
+body.darkMode .appName{
+    background-color:#0b1220;
+    transition: background-color 0.3s ease;
+}
+.closeButton{
+    color: red;
+    background-color: red;
+    border: 2px solid rgb(136, 18, 0);
+    height: 15px;
+    width: 15px;
+    border-radius: 15px;
+}
+.appContent{
+    padding: 10px;
+}
+.appContent textarea{
+    display: block;
+    box-sizing: border-box;
+    width: 280px;
+    height: 180px;
+    resize: both;
+    font: inherit;
+    color: green;
+    background-color: ivory;
+}
+.codeList{
+    background-color: ivory;
+    color: green;
+    cursor: pointer;
+    list-style: none;
+    margin: 0;
+    min-width: 280px;
+    outline: none;
+    padding: 5px;
+}
+.codeViewer{
+    align-items: center;
+    display: flex;
+    gap: 6px;
+}
+.codeArrow{
+    background-color: ivory;
+    border: 1px solid green;
+    color: green;
+    cursor: pointer;
+    font-size: 18px;
+    height: 34px;
+    line-height: 1;
+    width: 28px;
+}
+.codeArrow:hover,
+.codeArrow:focus-visible{
+    background-color: green;
+    color: ivory;
+}
+.codeList li{
+    padding: 5px 8px;
+}
+.codeList li.selected,
+.codeList li:hover{
+    background-color: green;
+    color: ivory;
+}
+.codeList:focus{
+    box-shadow: 0 0 0 2px red;
+}
+.appIcon img{
+    height: 34px;
+    margin-top: 5px;
+    opacity: 0;
+    transition: opacity 150ms ease;
+    width: auto;
+}
+.appIcon{
+    background-color: white;
+    border: 2px solid rgb(0 0 0/ 80);
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 30px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 8px;
+    position: relative;
+    transition: height 150ms ease, width 150ms ease;
+    width: 76px;
+    text-align: center;
+}
+.appIcon::before{
+    background-color: red;
+    border-radius: 999px;
+    content: "";
+    height: 20px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transition: height 150ms ease, width 150ms ease;
+    transform: translate(-50%, -50%);
+    width: 20px;
+}
+.appIcon:hover,
+
+.appIcon:focus-visible{
+    align-items: center;
+    height: 180px;
+    justify-content: center;
+    width: 76px;
+}
+.appIcon:hover::before,
+.appIcon:focus-visible::before{
+    height: 48px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+}
+.appIcon:hover img,
+.appIcon:focus-visible img,
+.appIcon:hover p,
+.appIcon:focus-visible p{
+    opacity: 1;
+}
+.appIcon img,
+.appIcon p{
+    position: relative;
+    z-index: 1;
+}
+.appIcon p{
+    margin: 4px 0 0;
+    opacity: 0;
+    transition: opacity 150ms ease;
+}
+.appIcon:focus{
+    outline: 2px solid red;
+    outline-offset: 2px;
+}
+.apps{
+    background-color: brown;
+    width: fit-content;
+    height: 70%;
+    left: auto;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    border: 2px solid rgb(105, 28, 28);
+}
+.appIcon img#weatherIcon {
+    background: transparent;
+    display: block;
+    opacity: 0;
+    filter:
+        drop-shadow(1px 0 0 black)
+        drop-shadow(-1px 0 0 black)
+        drop-shadow(0 1px 0 black)
+        drop-shadow(0 -1px 0 black);
+    transition: opacity 150ms ease;
+}
+
+.appIcon:hover img#weatherIcon,
+.appIcon:focus-visible img#weatherIcon {
+    opacity: 1;
+}

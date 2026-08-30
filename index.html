@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DexterOS</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="java.js"></script>
+    </head>
+    <body>
+        <div class="topBar">
+            <p id="topTitle">DexterOS</p>
+            <p id="currentTime" class="currentTime">Time</p>
+        </div>
+        <h1>DexterOS</h1>
+        
+        <div class="apps">
+            <div class="appIcon" data-app="notepadApp" role="button" tabindex="0">
+                <img src="notepad.png" alt="Notepad">
+                <p>Notepad</p>
+            </div>
+            <div class="appIcon" data-app="codeApp" role="button" tabindex="0">
+                <img src="harry.png" alt="Harry's Code">
+                <p>Harry's Code</p>
+            </div>
+            <div class="appIcon" data-app="forensics" role="button" tabindex="0">
+                <img src="blood.png" alt="Forensics">
+                <p>Forensics</p>
+            </div>
+            <div class="appIcon" data-app="weatherApp" role="button" tabindex="0">
+                <img src="weather.png" id="weatherIcon">
+                <p>Bay Harbor Weather</p>
+            </div>
+            <div class="appIcon" data-app="evidenceApp" role="button" tabindex="0">
+                <img src="evidence.png">
+                <p>Evidence Locker</p>
+            </div>
+            <div class="appIcon" data-app="operationsApp" role="button" tabindex="0">
+                <img src="operate.png">
+                <p>Miami Metro Operations</p>
+            </div>
+            <div class="appIcon" data-app="caseList" role="button" tabindex="0">
+                <img src="cases.png">
+                <p>Case List</p>
+            </div>
+            <div class="appIcon" data-app="settingsApp" role="button" tabindex="0">
+                <img src="settings.png">
+                <p>Settings</p>
+            </div>
+        </div>
+        <div class="app" id="notepadApp">
+            <div class="appName">
+                <h4>Notepad</h4>
+                <button type="button" class="closeButton" id="closeNotepad" aria-label="Close Notepad"></button>
+            </div>
+            <div class="appContent">
+                <textarea aria-label="Notepad contents" placeholder="Tonights the night..."></textarea>
+            </div>
+        </div>
+        <div class="app codeApp" id="codeApp">
+            <div class="appName">
+                <h4>Harry's Code</h4>
+                <button type="button" class="closeButton" id="closeCode" aria-label="Close The Code"></button>
+            </div>
+            <div class="appContent">
+                <div class="codeViewer">
+                    <button type="button" class="codeArrow" id="previousCode" aria-label="Previous code item">&lt;</button>
+                    <ul class="codeList" id="codeList" tabindex="0" aria-label="The Code"></ul>
+                    <button type="button" class="codeArrow" id="nextCode" aria-label="Next code item">&gt;</button>
+                </div>
+            </div>
+        </div>
+        <div class="app forensicsApp" id="forensics">
+            <div class="appName">
+                <h4>Forensics</h4>
+                <button type ="button" class="closeButton" id="closeForensics" aria-label="Close Forensics">&lt;</button>
+            </div>
+            <div class="appContent">
+                <p>
+                Blood Spatter Analysis 101:<br>
+                Blood Spatter is a forensics method that uses a combination
+                of physics, math, and biology to reconstruct violent crimes.
+                Varitations in shape size and distribution of blood stains can 
+                help investigators figure out what happened. 
+                Key terms:<br>
+                Parentdrop is the main drop of blood that strikes the surface.
+                Satellite spatter is when a bunch of tiny droplets break upon impact.
+                Spines and tails are the pointy edges that stick out from the main stain. These
+                always point in the direction the blood traveled. 
+                Surface tension is what holds the blood together until a surface like carpet or concrete 
+                breaks them apart. It is also the reason why blood is commonly in the shape of circles or
+                ovals.
+                Categories of Bloodstain patterns:<br>
+                Passive stains are drops created by gravity alone like drips or trails.
+                Projected stains are from blood forced or propelled from pressure like an artery 
+                nose mouth or slung by a weapon.
+                Impact spatter would be the stains created by force applied to a source of blood.
+                Altered and transfered stains is when an existing pattern is changed. 
+                Void patterns are an empty blank space in a sptter pattern where the blood was blocked from an object or person.</p>
+            </div>
+            
+            
+            
+        </div>
+        <div class="app weatherApp" id="weatherApp">
+                <div class="appName">
+                    <h4>Bay Harbor Weather</h4>
+                    <button type="button" class="closeButton" id="closeWeather" aria-label="Close Weather">&lt; </button>
+                </div>
+                <div class="appContent">
+                    <p id="temp">Temp</p>
+                    <p id="humidity">Humidity</p>
+                    <p id="visibility">Visibility</p>
+                </div>
+        </div>
+        <div class="app evidenceApp" id="evidenceApp">
+            <div class="appName">
+                <h4>Evidence Locker</h4>
+                <button type="button" class="closeButton" id="closeEvidence" aria-label="Close Evidence">&lt;</button>
+            </div>
+            <div class="appContent">
+                <div id="locked">
+                    <p>Enter Pin</p>
+                    <input id="pinInput" type="password" aria-label="Evidence locker pin" placeholder="Enter or Create Pin">
+                    <button id="pinSubmit" type="button">Enter</button>
+                    <p id="pinMessage" aria-live="polite"></p>
+                </div>
+                <div id="unlocked" hidden>
+                    <p>Evidence Notes</p>
+                    <textarea id="evidenceNote" aria-label="Evidence notes" placeholder="Create private notes"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="app operationsApp" id="operationsApp">
+            <div class="appName">
+                <h4>Miami Metro Operations</h4>
+                <button type="button" class="closeButton" id="closeOperations" aria-label="Close Operations">&lt;</button>
+            </div>
+            <div class="appContent">
+                <p id="cpuUsage">CPU: --</p>
+                <p id="diskUsage">Disk: --</p>
+                <p id="memoryUsage">Memory: --</p>
+            </div>
+        </div>
+        <div class="app caseList" id="caseList">
+            <div class="appName">
+                <h4>Case List</h4>
+                <button type="button" class="closeButton" id="closeCases" aria-label="Close Cases">&lt;</button>
+            </div>
+            <div class="appContent">
+                <h4 id="name">Name</h4>
+                <img id="photo" src="">
+                <p id="paragraph">Info</p>
+                <button id="prevButton" type="button">Previous</button>
+                <button id="nextButton" type="button">Next</button>
+            </div>
+        </div>
+        <div class="app settingsApp" id="settingsApp">
+            <div class="appName">
+                <h4>Settings</h4>
+                <button type="button" class="closeButton" id="closeSettings" aria-label="Close Settings">&lt;</button>
+            </div>
+            <div class="appContent">
+                <button id="mode" type="button" onclick="document.body.classList.toggle('darkMode'); this.textContent = document.body.classList.contains('darkMode') ? 'Light Mode' : 'Dark Mode';">Dark Mode</button>
+            </div>
+        </div>
+    </body>
+</html>
