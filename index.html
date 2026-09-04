@@ -6,13 +6,15 @@
         <script src="java.js"></script>
     </head>
     <body>
-        <div class="topBar">
-            <p id="topTitle">DexterOS</p>
+        
+        <div class="titleBar" id="bottom">
+            <p id="title">DexterOS</p>
             <p id="currentTime" class="currentTime">Time</p>
         </div>
+        
         <h1>DexterOS</h1>
         
-        <div class="apps">
+        <div class="apps defaltMode">
             <div class="appIcon" data-app="notepadApp" role="button" tabindex="0">
                 <img src="notepad.png" alt="Notepad">
                 <p>Notepad</p>
@@ -27,7 +29,7 @@
             </div>
             <div class="appIcon" data-app="weatherApp" role="button" tabindex="0">
                 <img src="weather.png" id="weatherIcon">
-                <p>Bay Harbor Weather</p>
+                <p>Weather</p>
             </div>
             <div class="appIcon" data-app="evidenceApp" role="button" tabindex="0">
                 <img src="evidence.png">
@@ -41,15 +43,40 @@
                 <img src="cases.png">
                 <p>Case List</p>
             </div>
+            <div class="appIcon" data-app="clock" role="button" tabindex="0">
+                <img src="clock.png">
+                <p>Clock</p>
+            </div>
+            
+            <div class="appIcon" data-app="customizationApp" role="button" tabindex="0">
+                <img src="customs.png">
+                <p>Customize</p>
+            </div>
+            <div class="appIcon" data-app="calendar" role="button" tabindex="0">
+                <img src="calendar.png">
+                <p>Calendar</p>
+            </div>
+            <div class="appIcon" data-app="calculatorApp" role="button" tabindex="0">
+                <img src="calculator.png">
+                <p>Calculator</p>
+            </div>
+            <div class="appIcon" data-app="photos" role="button" tabindex="0">
+                <img src="photos.png">
+                <p>Photos</p>
+            </div>
             <div class="appIcon" data-app="settingsApp" role="button" tabindex="0">
                 <img src="settings.png">
                 <p>Settings</p>
             </div>
         </div>
-        <div class="app" id="notepadApp">
+        <div id="appz">
+        <div class="app" id="notepadApp" >
             <div class="appName">
                 <h4>Notepad</h4>
+                <div class="closeEnlargeButtons">
+                <button type="button" class="enlargeButton" id="enlargeButton" aria-label="Enlarge Notepad"></button>
                 <button type="button" class="closeButton" id="closeNotepad" aria-label="Close Notepad"></button>
+                </div>
             </div>
             <div class="appContent">
                 <textarea aria-label="Notepad contents" placeholder="Tonights the night..."></textarea>
@@ -58,10 +85,15 @@
         <div class="app codeApp" id="codeApp">
             <div class="appName">
                 <h4>Harry's Code</h4>
+                <div class="closeEnlargeButtons">
+                <button type="button" class="enlargeButton" id="enlargeButton" aria-label="EnlargeCode"></button>
                 <button type="button" class="closeButton" id="closeCode" aria-label="Close The Code"></button>
+                </div>
             </div>
             <div class="appContent">
+                <img id="harry" src="harryColor.png"><br>
                 <div class="codeViewer">
+                    
                     <button type="button" class="codeArrow" id="previousCode" aria-label="Previous code item">&lt;</button>
                     <ul class="codeList" id="codeList" tabindex="0" aria-label="The Code"></ul>
                     <button type="button" class="codeArrow" id="nextCode" aria-label="Next code item">&gt;</button>
@@ -71,7 +103,10 @@
         <div class="app forensicsApp" id="forensics">
             <div class="appName">
                 <h4>Forensics</h4>
-                <button type ="button" class="closeButton" id="closeForensics" aria-label="Close Forensics">&lt;</button>
+                <div class="closeEnlargeButtons">
+                <button type="button" class="enlargeButton" id="enlargeForensics" aria-label="enlargeForensics"></button>
+                <button type="button" class="closeButton" id="closeForensics" aria-label="Close Forensics"></button>
+                </div>
             </div>
             <div class="appContent">
                 <p>
@@ -102,10 +137,14 @@
         </div>
         <div class="app weatherApp" id="weatherApp">
                 <div class="appName">
-                    <h4>Bay Harbor Weather</h4>
-                    <button type="button" class="closeButton" id="closeWeather" aria-label="Close Weather">&lt; </button>
+                    <h4>Weather</h4>
+                    <div class="closeEnlargeButtons">
+                    <button type="button" class="enlargeButton" id="enlargeWeather" aria-label="Enlarge Weather"></button>
+                    <button type="button" class="closeButton" id="closeWeather" aria-label="Close Weather"></button>
+                    </div>
                 </div>
                 <div class="appContent">
+                    <p id="location">Location: Waiting for permission</p>
                     <p id="temp">Temp</p>
                     <p id="humidity">Humidity</p>
                     <p id="visibility">Visibility</p>
@@ -114,7 +153,10 @@
         <div class="app evidenceApp" id="evidenceApp">
             <div class="appName">
                 <h4>Evidence Locker</h4>
-                <button type="button" class="closeButton" id="closeEvidence" aria-label="Close Evidence">&lt;</button>
+                <div class="closeEnlargeButtons">
+                <button type="button" class="enlargeButton" id="enlargeEvidence" aria-label="enlargeEvidence"></button>
+                <button type="button" class="closeButton" id="closeEvidence" aria-label="Close Evidence"></button>
+                </div>
             </div>
             <div class="appContent">
                 <div id="locked">
@@ -132,7 +174,10 @@
         <div class="app operationsApp" id="operationsApp">
             <div class="appName">
                 <h4>Miami Metro Operations</h4>
-                <button type="button" class="closeButton" id="closeOperations" aria-label="Close Operations">&lt;</button>
+                <div class="closeEnlargeButtons">
+                <button type="button" class="enlargeButton" id="enlargeOperations" aria-label="Enlarge Operations"></button>
+                <button type="button" class="closeButton" id="closeOperations" aria-label="Close Operations"></button>
+                </div>
             </div>
             <div class="appContent">
                 <p id="cpuUsage">CPU: --</p>
@@ -143,9 +188,15 @@
         <div class="app caseList" id="caseList">
             <div class="appName">
                 <h4>Case List</h4>
-                <button type="button" class="closeButton" id="closeCases" aria-label="Close Cases">&lt;</button>
+                <div class="closeEnlargeButtons">
+                <button type="button" class="enlargeButton" id="enlargeCases" aria-label="Enlarge Cases"></button>
+                <button type="button" class="closeButton" id="closeCases" aria-label="Close Cases"></button>
+                </div>
             </div>
-            <div class="appContent">
+            <div class="appContent" id="spoilersOff" if="spoilersOn">
+                Turn spoilers on in Settings to view the case list.
+            </div>
+            <div class="appContent" id="spoilersOn" if="spoilersOff" hidden>
                 <h4 id="name">Name</h4>
                 <img id="photo" src="">
                 <p id="paragraph">Info</p>
@@ -153,14 +204,267 @@
                 <button id="nextButton" type="button">Next</button>
             </div>
         </div>
+        
+        <div class="app" id="clock">
+            <div class="appName">
+                <h4>Clock</h4>
+                <div class="closeEnlargeButtons">
+                <button type="button" class="enlargeButton" id="enlargeClock" aria-label="Enlarge Clock"></button>
+                <button type="button" class="closeButton" id="closeClock" aria-label="Close Clock"></button>
+                </div>
+            </div>
+            <div class="clockTabs">
+                <button class="tabButton active" data-tab="stopwatch" onclick="switchTab('stopwatch')">Stopwatch</button>
+                <button class="tabButton" data-tab="timer" onclick="switchTab('timer')">Timer</button>
+                <button class="tabButton" data-tab="alarm" onclick="switchTab('alarm')">Alarm</button>
+            </div>
+            <div class="appContent tabContent active" id="stopwatch">
+                <p id="stopwatchDisplay">00:00:00</p>
+                <button id="startStopwatch" type="button" onclick="startStopwatch()">Start</button>
+                <button id="stopStopwatch" type="button" onclick="stopStopwatch()">Stop</button>
+                <button id="resetStopwatch" type="button" onclick="resetStopwatch()">Reset</button>
+            </div>
+            <div class="appContent tabContent" id="timer">
+                <p id="timerDisplay">00:00:00</p>
+                <div class="timerInputs">
+                    <input type="number" id="timerHours" placeholder="HH" min="0" max="23" aria-label="Hours">
+                    <span>:</span>
+                    <input type="number" id="timerMinutes" placeholder="MM" min="0" max="59" aria-label="Minutes">
+                    <span>:</span>
+                    <input type="number" id="timerSeconds" placeholder="SS" min="0" max="59" aria-label="Seconds">
+                </div>
+                <button id="startTimer" type="button" onclick="startTimer()">Start</button>
+                <button id="stopTimer" type="button" onclick="stopTimer()">Stop</button>
+                <button id="resetTimer" type="button" onclick="resetTimer()">Reset</button>
+            </div>
+            <div class="appContent tabContent" id="alarm">
+                <p id="alarmDisplay">No alarm set</p>
+                <input type="time" id="alarmInput" aria-label="Alarm time">
+                <button id="setAlarm" type="button" onclick="setAlarm()">Set Alarm</button>
+                <button id="stopAlarm" type="button" onclick="stopAlarm()">Stop Alarm</button>
+            </div>
+        </div>
+        <div class="app customizationApp" id="customizationApp">
+            <div class="appName">
+                <h4>Customization</h4>
+                <div class="closeEnlargeButtons">
+                <button type="button" class="enlargeButton" id="enlargeCustomization" aria-label="Enlarge Customization"></button>
+                <button type="button" class="closeButton" id="closeCustomization" aria-label="Close Customization"></button>
+                </div>
+            </div>
+
+            <div class="appContent">
+
+                <div class="themeButtons">
+
+                    <div id="blue">
+                        <div class="example">
+                        <p class="blueTheme" id="blueTheme">Blue Theme</p>
+                        <p class="blueText">App text</p>
+                        </div>
+                    </div>
+
+                    <div id="green" hidden>
+                        <div class="example">
+                        <p class="greenTheme" id="greenTheme">Green Theme</p>
+                        <p class="greenText">App text</p>
+                        </div>
+                    </div>
+
+                    <div id="red" hidden>
+                        <div class="example">
+                        <p class="redTheme" id="redTheme">Red Theme</p>
+                        <p class="redText">App text</p>
+                        </div>
+                    </div>
+
+                    <div id="black" hidden>
+                        <div class="example">
+                        <p class="blackTheme" id="blackTheme">Black Theme</p>
+                        <p class="blackText">App text</p>
+                        </div>
+                    </div>
+                    
+                    <div id="white" hidden>
+                        <div class="example">
+                        <p class="whiteTheme" id="whiteTheme">White Theme</p>
+                        <p class="whiteText">App text</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="themeArrows">
+                <button type="button" class="customizationArrow" id="previousCustomization" aria-label="Previous customization item" onclick="previousTheme()">&lt;</button>
+                <button type="button" class="customizationArrow" id="nextCustomization" aria-label="Next customization item" onclick="nextTheme()">&gt;</button>
+                </div>
+                <br>
+                <p>Background Image</p>
+                <div class="backgroundButtons">
+                <button id="previousBackground" type="button" onclick="setBackgroundImage((currentBackgroundIndex - 1 + backgroundImages.length) % backgroundImages.length)">Previous</button>
+                <button id="nextBackground" type="button" onclick="setBackgroundImage((currentBackgroundIndex + 1) % backgroundImages.length)">Next</button>
+                </div>
+            </div>
+        </div>
         <div class="app settingsApp" id="settingsApp">
             <div class="appName">
                 <h4>Settings</h4>
-                <button type="button" class="closeButton" id="closeSettings" aria-label="Close Settings">&lt;</button>
+                <div class="closeEnlargeButton">
+                <button type="button" class="enlargeButton" id="enLargeSettings" aria-label="Enlarge Settings"></button>
+                <button type="button" class="closeButton" id="closeSettings" aria-label="Close Settings"></button>
+                </div>
             </div>
             <div class="appContent">
-                <button id="mode" type="button" onclick="document.body.classList.toggle('darkMode'); this.textContent = document.body.classList.contains('darkMode') ? 'Light Mode' : 'Dark Mode';">Dark Mode</button>
+                <button id="spoilerWarning" type="button" onclick="toggleSpoilers()" aria-label="Toggle Spoiler Warning">Spoilers Off</button>
+                <button id="glassMode" type="button" onclick="toggleGlassMode()" aria-label="Glass Mode">Glass Mode Off</button>
+                <div class="appBarButtons">
+                <button id="appBarBottom" type="button" onclick="setAppBarPosition('bottom')">App Bar Bottom</button>
+                <button id="appBarTop" type="button" onclick="setAppBarPosition('top')">App Bar Top</button>
+                </div>
+                <div class="settingsApps">
+                <div class="appIcon" data-app="welcomeScreen" role="button" tabindex="0">
+                <img src="welcome.png">
+                <p>Welcome Info</p>
+                </div>
+                <div class="appIcon" data-app="me" role="button" tabindex="0">
+                <img src="me.png">
+                <p>About Creator</p>
+                </div>
+            </div>
+            
+            
+            
             </div>
         </div>
+        
+
+        <div class="app photosApp" id="photos">
+            <div class="appName">
+                <h4>Photos</h4>
+                <div class="closeEnlargeButtons">
+                <button type="button" class="enlargeButton" aria-label="Enlarge Photos"></button>
+                <button type="button" class="closeButton" aria-label="Close Photos"></button>
+                </div>
+            </div>
+            <div class="appContent">
+                <p>Photos</p>
+                <img id="photoDisplay" src="nature1.jpg">
+                <div class="photoArrows">
+                    <button type="button" class="photoArrow" id="previousPhoto" aria-label="Previous Photo" onclick="previousPhoto()"></button>
+                    <button type="button" class="photoArrow" id="nextPhoto" aria-label="Next Photo" onclick="nextPhoto()"></button>
+                </div>
+                <div class="uploadSpot">
+                    <label for="photoInput" class="uploadBtn">Choose Photos</label>
+                    <input type="file" id="photoInput" accept="image/*" multiple>
+                </div>
+                
+            </div>
+        </div>
+        <div class="app calendarApp" id="calendar">
+            <div class="appName">
+                <h4>Calendar</h4>
+                <div class="closeEnlargeButtons">
+                <button type="button" class="enlargeButton" aria-label="Enlarge Calendar"></button>
+                <button type="button" class="closeButton" aria-label="Close Calendar"></button>
+                </div>
+            </div>
+            <div class="appContent">
+                <div class="calendarContainer">
+                <div class="calendarHeader">
+                    <button class="navBtn" id="prevMonth">Prev</button>
+                    <h4 id="monthYearDisplay"></h4>
+                    <button class="navBtn" id="nextMonth">Next</button>
+                </div>
+                <div class="weekdaysGrid">
+                    <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                </div>
+                <div class="daysGrid" id="calendarDays"></div>
+                </div>
+                <div class="modal" id="eventModal">
+                    <h4 id="modalContent">Add Event</h4>
+                    <input type="text" id="eventInput" placeholder="Enter event title...">
+                    <div class="modalActions">
+                        <button class="cancelBtn" id="closeModal">Cancel</button>
+                        <button class="saveBtn" id="saveEvent">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="app calculatorApp" id="calculatorApp">
+            <div class="appName">
+                <h4>Calculator</h4>
+                <div class="closeEnlargeButtons">
+                <button class="enlargeButton" id="enlargeCalculator" aria-label="enlargeCalculator"></button>
+                <button class="closeButton" id="closeCalculator" aria-label="closeCalculator"></button>
+                </div>
+            </div>
+            <div class="appContent">
+                <input type="text" id="calc" readonly aria-label="Calculator display">
+                <div class="buttons">
+                
+
+                <button class="clear" type="button" onclick="clearDisplay()">C</button>
+                <button class="operator" type="button" id="multiply" onclick="appendOperator('*')">*</button>
+                <button class="operator" type="button" id="divide" onclick="appendOperator('/')">/</button>
+                <button class="operator" type="button" id="add" onclick="appendOperator('+')">+</button>
+                
+
+                <button type="button" onclick="appendNumber('7')">7</button>
+                <button type="button" onclick="appendNumber('8')">8</button>
+                <button type="button" onclick="appendNumber('9')">9</button>
+                <button class="operator" type="button" id="subtract" onclick="appendOperator('-')">-</button>
+
+                <button type="button" onclick="appendNumber('4')">4</button>
+                <button type="button" onclick="appendNumber('5')">5</button>
+                <button type="button" onclick="appendNumber('6')">6</button>
+                <button class="operator" type="button" id="decimal" onclick="appendNumber('.')">.</button>
+
+                <button type="button" onclick="appendNumber('1')">1</button>
+                <button type="button" onclick="appendNumber('2')">2</button>
+                <button type="button" onclick="appendNumber('3')">3</button>
+                
+                <button class="equal" type="button" onclick="calculate()">=</button>
+
+                <button id="zero" type="button" onclick="appendNumber('0')">0</button>
+
+                
+
+
+                </div>
+            </div>
+        </div>
+        <div class="app welcomeScreen" id="welcomeScreen">
+            <div class="appName">
+                <h4>Welcome Screen</h4>
+                <button type="button" class="closeButton" aria-label="Close Welcome Screen"></button>
+            </div>
+            <div class="appContent" id="welcomeBr">
+                <p>Welcome to DexterOS its a pleasure to have you here! Some quick tips and tricks before you fully dive in:
+                    <br><br><b>IF app ICONS are being glitchy</b><br> Go onto the app icon from above or below
+                     I wanted the app container to look like Dexters blood slides but in order to fully
+                    get the look they have to expand so you know what app your clicking on.<br><br>
+                    <b>Leave Feedback!</b><br> <p>Please leave anything you would like to see in reviews or comments on my Stardance or Github page
+                        this allows me to make the experince better for you guys!
+                    </p><br>
+                    <b>Enjoy!</b><br><p>Hopefully you guys will enjoy DexterOs as much as I did while making it.</p>
+                </p>
+            </div>
+        </div>
+        <div class="app me" id="me">
+            <div class="appName">
+                <h4>About Creator</h4>
+                <button type="button" class="closeButton" aria-label="Close About Creator"></button>
+                </div><div class="appContent">
+                <p>
+                    The readibility will be low on this one but its ok. Since I was little I loved math and its my favorite subject in school. 
+                    Over the pandemic I picked up on coding and stopped because an increased workload but have gotten back into it recently. I 
+                    love to 3d print and think being able to model something on a computer then physcially feel it a few hours later is the pinnacle
+                    of humanity. I love podcasts some of my favorite are Founders, How to Take Over the World, and Moltey Fool Investing. Favorite genre
+                    of music 90s alt rock unless im working then obviously classical. Kind of play the guitar not really but know some songs just to be tough.
+                    Also this is the best project I have made up to this point so keep that in mind.
+                    Thats all thanks for your interest hope your enjoying DexterOS!
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
     </body>
 </html>
