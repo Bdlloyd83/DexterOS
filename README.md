@@ -1,7 +1,7 @@
 # DexterOS
 <hr>
 Dexter Os was made with privacy in mind.
-<img src="https://github.com/Bdlloyd83/DexterOS/blob/main/home.png">
+<img src="https://github.com/Bdlloyd83/DexterOS/blob/main/DexterOS2.0.png">
 <img src="https://github.com/Bdlloyd83/DexterOS/blob/main/glassModeCode.png">
 <img src="https://github.com/Bdlloyd83/DexterOS/blob/main/glassModeToad.png">
 <a href="https://bdlloyd83.github.io/DexterOS/">DexterOS</a>
