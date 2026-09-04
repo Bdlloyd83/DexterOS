@@ -3,7 +3,7 @@
 Dexter Os was made with privacy in mind.
 <img src="https://github.com/Bdlloyd83/DexterOS/blob/main/home.png">
 <img src="https://github.com/Bdlloyd83/DexterOS/blob/main/glassModeCode.png">
-img src="https://github.com/Bdlloyd83/DexterOS/blob/main/glassModeToad.png">
+<img src="https://github.com/Bdlloyd83/DexterOS/blob/main/glassModeToad.png">
 <a href="https://bdlloyd83.github.io/DexterOS/">DexterOS</a>
 <h2 style="text-align:center;">Uses</h2>
 DexterOS allows everyone to use<br>
