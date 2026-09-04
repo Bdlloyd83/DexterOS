@@ -10,18 +10,43 @@ body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
-body.darkMode{
-    background-color: rgb(70, 66, 66);
-    color: azure;
-    border-color: #0c2d5a;
-    box-shadow: inset 0 0 0 4px #0c2d5a;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-
+#harry{
+    display: block;
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
 }
+.glassMode .app,
+.glassMode .appName,
+.glassMode .appContent,
+.glassMode .settingsApps {
+   background-color: color-mix(in srgb, var(--currentTheme, #06213a) 55%, transparent) !important;
+   backdrop-filter: blur(12px);
+   -webkit-backdrop-filter: blur(12px);
+   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+   transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.glassBtn{
+    background-color: color-mix(in srgb, var(--appButtonBg, #06213a) 55%, transparent) !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: background 0.3s;
+}
+
 h1{
+    bottom: 42px;
+    left: 0;
+    margin: 0;
+    position: fixed;
+    right: 0;
     text-align: center;
     color: red;
     text-shadow: 5px 5px 5px black;
+}
+body.app-bar-bottom h1{
+    bottom: auto;
+    top: 70px;
 }
 .app{
     display: none;
@@ -38,18 +63,93 @@ h1{
     height: fit-content;
 }
 .apps{
-    align-items: flex-start;
+    align-items: center;
+    background-color: brown;
+    border: 2px solid rgb(105, 28, 28);
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 2px;
+    height: 90%;
     justify-content: center;
+    padding: 5px;
+    pointer-events: auto;
     position: fixed;
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
+    width: fit-content;
     z-index: 10;
-    pointer-events: auto;
 }
+#welcomeBr{
+    line-height: 0.95;
+}
+.me{
+    width: 400px;
+}
+.settingsApps{
+    border-radius: 5px;
+    align-items: center center;
+    display:flex;
+    background-color: var(--currentText, #003192);
+    color: var(--currentTextColor, #c6fffa);
+    flex-direction: row;
+    justify-content: center;
+    gap:2px;
+    height: 80px;
+    padding-top: 30px;
+}
+.welcomeScreen{
+    width: 350px;
+    top: 10%;
+}
+body.app-bar-bottom .apps{
+    align-items: center;
+    bottom: 12px;
+    flex-direction: row;
+    height: 76px;
+    justify-content: center;
+    left: 50%;
+    margin: 0;
+    max-width: 95vw;
+    right: auto;
+    top: auto;
+    transform: translateX(-50%);
+    width: fit-content;
+}
+body .app-bar-bottom .apps .appIcon{
+    flex-direction: column;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: transform 150ms ease, height 150ms ease, width 150ms ease;
+}
+body .app-bar-bottom .apps .appIcon:hover,
+body .app-bar-bottom .apps .appIcon:focus-visible{
+    height: 76px;
+    width: 180px;
+    transform: rotate(0deg);
+}
+body.app-bar-bottom .apps .appIcon:hover::before,
+body.app-bar-bottom .apps .appIcon:focus-visible::before{
+    height: 32px;
+    width: 32px;
+}
+body.app-bar-top .apps{
+    align-items: center;
+    bottom: auto;
+    flex-direction: row;
+    height: 76px;
+    justify-content: center;
+    left: 50%;
+    margin: 0;
+    max-width: 95vw;
+    right: auto;
+    top: 12px;
+    transform: translateX(-50%);
+    width: fit-content;
+}
+
+
 .codeApp{
     left: 480px;
     top: 180px;
@@ -86,7 +186,12 @@ h1{
 .operationsApp{
     left: 600px;
     top: 150px;
+    width: 325px;
 }
+.operationsApp .appContent{
+    text-align:center;
+}
+
 .caseList{
     left: 640px;
     top: 200px;
@@ -96,6 +201,7 @@ h1{
 .caseList .appContent{
     text-align: center;
 }
+
 .caseList #name{
     margin: 0 0 10px;
     text-align: center;
@@ -108,10 +214,13 @@ h1{
 .settingsApp{
     left:680px;
     top: 250px;
+    min-height: 350px;
     
 }
+
+
 #mode{
-    background-color: rgb(144 238 144/ 80);
+    background-color: green;
     border-radius: 5px;
     
 }
@@ -144,18 +253,37 @@ h1{
     justify-content: space-between;
     cursor: move;
     transition: background-color 0.3s ease;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-.topBar{
-    top: 100%;
+.titleBar{
+    bottom: 0;
     width: 100%;
     background-color: ivory;
     display: flex;
+    left: 0;
     justify-content: space-evenly;
+    position: fixed;
     color: green;
+    z-index: 20;
     transition: background-color 0.3s ease;
 }
-.topBar #topTitle,
-.topBar #currentTime{
+body.app-bar-bottom .titleBar{
+    bottom: auto;
+    top: 0;
+}
+body.app-bar-top h1{
+    bottom: 70px;
+}
+.titleBar #top{
+    top: 0px;
+
+}
+.titleBar #bottom{
+    bottom: 0px;
+}
+.titleBar #bottom,
+.titleBar #currentTime{
     background-color: rgb(206, 224, 241);
     color: green;
     width: 20%;
@@ -165,21 +293,7 @@ h1{
     font-weight: 600;
     transition: background-color 0.3s ease, font-weight 0.2s ease;
 }
-body.darkMode .topBar{
-    background-color: #0b1220;
 
-    transition: background-color 0.3s ease;
-}
-body.darkMode .topBar #topTitle,
-body.darkMode .topBar #currentTime{
-    background-color: #1b2a3d;
-    font-weight: 700;
-    transition: background-color 0.3s ease, font-weight 0.2s ease;
-}
-body.darkMode .appName{
-    background-color:#0b1220;
-    transition: background-color 0.3s ease;
-}
 .closeButton{
     color: red;
     background-color: red;
@@ -187,6 +301,14 @@ body.darkMode .appName{
     height: 15px;
     width: 15px;
     border-radius: 15px;
+}
+.enlargeButton{
+    color: #4f9141;
+    background-color: #4f9141;
+    border: 2px solid #315a29;
+    height:15px;
+    width:15px;
+    border-radius:15px;
 }
 .appContent{
     padding: 10px;
@@ -234,6 +356,7 @@ body.darkMode .appName{
 .codeList li{
     padding: 5px 8px;
 }
+
 .codeList li.selected,
 .codeList li:hover{
     background-color: green;
@@ -261,7 +384,7 @@ body.darkMode .appName{
     flex-direction: column;
     height: 30px;
     margin: 0;
-    overflow: hidden;
+    overflow: visible;
     padding: 0 8px;
     position: relative;
     transition: height 150ms ease, width 150ms ease;
@@ -279,14 +402,22 @@ body.darkMode .appName{
     transition: height 150ms ease, width 150ms ease;
     transform: translate(-50%, -50%);
     width: 20px;
+    z-index: 0;
 }
 .appIcon:hover,
-
 .appIcon:focus-visible{
     align-items: center;
     height: 180px;
     justify-content: center;
+    overflow: hidden;
     width: 76px;
+}
+body .appIcon:hover,
+body.appIcon:focus-visible,
+body .appIcon.app-open{
+    height: 76px;
+    width: 180px;
+    transform: rotate(0deg);
 }
 .appIcon:hover::before,
 .appIcon:focus-visible::before{
@@ -296,36 +427,95 @@ body.darkMode .appName{
     transform: translate(-50%, -50%);
     width: 48px;
 }
+body.appIcon:hover::before,
+body.appIcon:focus-visible::before,
+body .appIcon.app-open::before{
+    height: 32px;
+    width: 32px;
+}
+body .appIcon{
+    flex-direction: column;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: transform 150ms ease, height 150ms ease, width 150ms ease;
+}
+.appIcon img,
+.appIcon p,
+.appIcon .previewName{
+    position: relative;
+    z-index: 1;
+}
+.appIcon img,
+.appIcon p{
+    opacity: 0;
+    transition: opacity 150ms ease;
+}
+.appIcon p{
+    margin: 4px 0 0;
+}
 .appIcon:hover img,
 .appIcon:focus-visible img,
 .appIcon:hover p,
 .appIcon:focus-visible p{
     opacity: 1;
 }
-.appIcon img,
-.appIcon p{
-    position: relative;
-    z-index: 1;
-}
-.appIcon p{
-    margin: 4px 0 0;
+
+.previewName{
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
+    color: black;
+    font-size: 11px;
+    left: 50%;
+    line-height: 1.2;
     opacity: 0;
+    padding: 2px 6px;
+    pointer-events: none;
+    position: absolute;
+    top: -18px;
+    transform: translateX(-50%);
     transition: opacity 150ms ease;
+    visibility: hidden;
+    white-space: nowrap;
+    z-index: 20;
+}
+body.previewNamesOn .appIcon:not(.app-open):not(:hover):not(:focus-visible) .previewName{
+    opacity: 1;
+    visibility: visible;
+}
+body.previewNamesOn .appIcon:hover .previewName,
+body.previewNamesOn .appIcon:focus-visible .previewName,
+body.previewNamesOn .appIcon.app-open .previewName,
+body:not(.previewNamesOn) .previewName{
+    opacity: 0;
+    visibility: hidden;
+}
+body .appIcon .previewName{
+    transform: translateX(-50%) rotate(90deg);
 }
 .appIcon:focus{
     outline: 2px solid red;
     outline-offset: 2px;
 }
-.apps{
-    background-color: brown;
-    width: fit-content;
-    height: 70%;
-    left: auto;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 5px;
-    border: 2px solid rgb(105, 28, 28);
+.appBarButtons{
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+.appBarButtons button{
+    background-color: ivory;
+    border: 1px solid green;
+    color: green;
+    cursor: pointer;
+    padding: 6px 10px;
+}
+.appBarButtons button.active{
+    background: linear-gradient(180deg, #89ff8a 0%, #2bbf50 100%);
+    border-color: #003d00;
+    color: #001f00;
+    font-weight: 800;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.8), 0 0 0 6px rgba(0,128,0,0.5);
+    transform: translateY(-1px);
 }
 .appIcon img#weatherIcon {
     background: transparent;
@@ -343,3 +533,404 @@ body.darkMode .appName{
 .appIcon:focus-visible img#weatherIcon {
     opacity: 1;
 }
+#stopwatchDisplay {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.clockTabs {
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    background-color: #333;
+    border-bottom: 2px solid green;
+    color:aliceblue
+    
+}
+
+.tabButton {
+    padding: 8px 16px;
+    background-color: #555;
+    color: aliceblue;
+    border: 1px solid green;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.tabButton:hover {
+    background-color: green;
+    color: black;
+}
+
+.tabButton.active {
+    background-color: green;
+    color: black;
+    font-weight: bold;
+}
+
+.tabContent {
+    display: none;
+}
+
+.tabContent.active {
+    display: block;
+}
+
+#timerDisplay,
+#alarmDisplay {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.timerInputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.timerInputs input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    background-color: ivory;
+    color: black;
+    border: 1px solid green;
+}
+.timerInputs input:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.appContent button {
+    display: block;
+    margin: 10px auto;
+    padding: 8px 16px;
+    background-color: green;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+.appContent .appBarButtons button {
+    background-color: green;
+}
+.appBarButton:active {
+    background-color: lightgreen;
+    color: black;
+
+}
+.blueTheme{
+    background-color:#0b1220;
+    color: rgb(117, 255, 243);
+    
+    
+}
+.blueText{
+    background-color:#003192;
+    color:rgb(198, 255, 250);
+    
+}
+#blueTheme{
+    text-align: center;
+}
+.greenTheme{
+    background-color: #103a06;
+    color: rgb(149, 255, 117);
+}
+.greenText{
+    background-color: #198a00;
+    color: rgb(178, 253, 178);
+}
+#greenTheme{
+    text-align: center;
+}
+.redTheme{
+    background-color: #3a0606;
+    color: rgb(255, 117, 117);
+}
+.redText{
+    background-color: rgb(138, 8, 8);
+    color: rgb(255, 197, 197);
+}
+#redTheme{
+    text-align: center;
+}
+.blackTheme{
+    background-color: #0a0a0a;
+    color: rgb(255, 255, 255);
+}
+.blackText{
+    background-color: #464545;
+    color: rgb(223, 223, 223);
+}
+#blackTheme{
+    text-align: center;
+}
+.whiteTheme{
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+}
+.whiteText{
+    background-color: #f0f0f0;
+    color: #0a0a0a;
+}
+#whiteTheme{
+    text-align: center;
+}
+.customizationApp{
+    left: 720px;
+    top: 300px;
+    width: fit-content;
+    height: fit-content;
+
+}
+.example{
+    height: fit-content;
+
+}
+.themeButtons{
+    width:fit-content;
+    
+    text-align: center;
+    width: 100%;
+
+}
+.themeArrows{
+    display: flex;
+    gap: 15px;
+}
+#photoDisplay{
+    max-height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.photosApp{
+    min-width: 425px;
+    text-align: center;
+}
+.uploadSpot{
+    background-color: #333;
+    outline: 1px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.uploadSpot:hover {
+    background-color: #979797;
+}
+.photoArrows{
+    display: flex;
+    gap: 15px;
+}
+
+.backgroundButtons{
+    display: flex;
+    gap: 15px;
+}
+
+#title {
+    text-align: center center;
+    padding: 5px;
+}
+.calculatorApp{
+    left: 100px;
+    top: 240px;
+}
+.calendarApp{
+    left: 220px;
+    top: 340px;
+}
+.photosApp{
+    left: 360px;
+    top: 120 px;
+}
+#photoInput {
+    display: none;
+}
+.photoInput{
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    aspect-ratio: 1 / 1;
+}
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+button.equal{
+    grid-column: span 2;
+}
+button.clear{
+    grid-column: span 2;
+}
+button #zero{
+    grid-column: span 2;
+}
+.calendarContainer {
+    box-sizing: border-box;
+    width:100%;
+    max-width: 800px;
+    padding: 5px;
+    border-radius: 8px;
+    background: var(--currentTheme, #003192);
+    color: var(--currentTextColor, #c6fffa);
+
+}
+.calendarHeader{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+
+}
+.calendarHeader h4 {
+    margin: 0;
+    color: inherit;
+}
+.navBtn {
+    background: var(--appButtonBg, #06213a);
+    border: 1px solid var(--currentThemeText, #c6fffa);
+    color: var(--currentThemeText, #c6fffa);
+    padding: 6px 10px;
+    cursor: pointer;
+}
+.weekdaysGrid, .daysGrid{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+.weekdaysGrid{
+    text-align: center;
+    margin-bottom:3px;
+    color: var(--currentThemeText, #c6fffa);
+
+}
+.dayCell{
+    box-sizing: border-box;
+    min-height: 52px;
+    border: 1px solid var(--currentThemeText, #c6fffa);
+    border-radius: 6px;
+    padding: 4px;
+    background: var(--currentText, #003192);
+    color: var(--currentTextColor, #c6fffa);
+    transition: background 0.2s;
+    display:flex;
+    cursor:pointer;
+    flex-direction:column;
+    justify-content:flex-start;
+}
+.dayCell.empty{
+    background:transparent;
+    border:none;
+    cursor:defalt;
+}
+.dayCell:hover, .dayCell:focus-visible{
+    background: var(--appButtonBg, #06213a);
+}
+.dayCell.today{
+    background: var(--appButtonBg, #06213a);
+    border-color: var(--currentThemeText, #c6fffa);
+}
+.dayNumber{
+    font-weight: bold;
+    margin-bottom:2px;
+
+}
+.eventBadge{
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 2px;
+    background: var(--currentTheme, #003192);
+    color: var(--currentThemeText, #c6fffa);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal h4, .modal input, .modal .modalActions {
+    position: relative;
+    z-index: 1;
+}
+.modal {
+    flex-direction: column;
+    gap: 6px;
+    box-sizing: border-box;
+    padding: 6px;
+    background: var(--currentText, #003192);
+    color: var(--currentTextColor, #c6fffa);
+    border: 1px solid var(--currentThemeText, #c6fffa);
+}
+.modal input {
+    background: var(--currentTheme, #06213a);
+    border: 1px solid var(--currentThemeText, #c6fffa);
+    color: var(--currentThemeText, #c6fffa);
+    padding: 5px;
+}
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.modalActions button {
+    background: var(--appButtonBg, #06213a);
+    border: 1px solid var(--currentThemeText, #c6fffa);
+    color: var(--currentThemeText, #c6fffa);
+    padding: 4px 8px;
+    cursor: pointer;
+}
+.modal-content {
+    background: var(--currentText, #003192);
+    color: var(--currentTextColor, #c6fffa);
+    padding: 6px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+.modal-content h3 {
+    margin-bottom: 4px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+ .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .modal-actions button {
+            padding: 4px 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+.save-btn { background: var(--appButtonBg, #06213a); color: var(--currentThemeText, #c6fffa); }
+.cancel-btn { background: var(--appButtonBg, #06213a); color: var(--currentThemeText, #c6fffa); }
